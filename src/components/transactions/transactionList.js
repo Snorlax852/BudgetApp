@@ -12,9 +12,9 @@ class TransactionList extends React.Component {
     render() {
         return (
             <div>
-                this.txList = this.props.data.map((entry, idx) -> 
-                    <p>{entry.description}</p>
-                )
+                {this.props.data.map((entry, idx) => 
+                    <p key={idx}>${entry.cost} {entry.description}</p> 
+                )}
             </div>
         )
     }
