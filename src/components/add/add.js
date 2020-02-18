@@ -1,5 +1,4 @@
 import React from "react";
-import './add.css';
 
 class Add extends React.Component {
     constructor (props) {
@@ -38,7 +37,7 @@ class Add extends React.Component {
                         value={this.state.description} 
                         onChange={evt=> {this.updateDescription(evt)}}>
                     </input> &nbsp;
-
+                    <br></br>
                     Cost: 
                     <input 
                         type = "number" 

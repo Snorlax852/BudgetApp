@@ -1,0 +1,49 @@
+
+.header {
+    width: 100%;
+    border: 5px solid black;
+    background-color: #E3B9F7;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+    margin: auto;
+
+}
+
+.flex-item {
+    background-color: white;
+    color: black;
+    text-align: left;
+    width: 348px;
+    border: 1px solid black;
+}
+
+.transactionList {
+    border: 2px solid black;
+    background: white;
+    color: black;
+    text-align: center;
+    width: 300px;
+    padding: 7px;
+    margin: auto;
+}
+
+.add {
+    width: 300px;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.delete {
+    width: 300px;
+    order: 3;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 700px;
+    justify-content: space-between;
+}

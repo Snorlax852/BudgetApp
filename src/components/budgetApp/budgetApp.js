@@ -3,6 +3,8 @@ import Balance from '../Balance/balance';
 import TransactionList from '../transactions/transactionList';
 import Add from '../add/add';
 import Delete from '../delete/delete';
+import Update from '../update/update';
+import './budgetApp.css';
 
 class BudgetApp extends React.Component {
     constructor (props) {
@@ -20,6 +22,8 @@ class BudgetApp extends React.Component {
      
         this.addTransaction = this.addTransaction.bind(this);
         this.deleteTransaction = this.deleteTransaction.bind(this);
+        this.updateTransaction = this.updateTransaction.bind(this);
+        this.toggleChecked = this.toggleChecked.bind(this);
         this.isChecked = this.isChecked.bind(this);
     }
 
@@ -54,15 +58,40 @@ class BudgetApp extends React.Component {
         this.calculateTotal(newData);
     }
 
-    isChecked(idx) {
+    updateTransaction(idx, newDesc, newCost) {
+        let newData = this.state.data;
+
+        newData[idx].description = newDesc;
+        newData[idx].cost = newCost;
+        this.toggleChecked(idx);
+        
+        this.setState(
+            {data: newData}
+        )
+
+        this.calculateTotal(newData)
+        
+    }
+
+    toggleChecked(idx) {
         console.log(idx);
         let newData= this.state.data;
-        newData[idx].checked = true;
+        newData[idx].checked = !newData[idx].checked;
+           
         
         this.setState(
             {data: newData}
         )
         
+    }
+    isChecked(arr) {
+        let hasChecked = false;
+        arr.forEach(element => {
+            if (element.checked === true) {
+                hasChecked = true;
+            }
+        })
+        return hasChecked;
     }
 
     calculateTotal(arr) {
@@ -78,15 +107,27 @@ class BudgetApp extends React.Component {
     }
     render() {    
         return (
+            
+            <body>
+                <div class = "flex-container">
+                    <header class="header">Budget App</header>
 
-            <div>
-
-                <Add addTransaction={this.addTransaction}></Add>    
-                <Delete deleteTransaction={this.deleteTransaction}></Delete>
-                <TransactionList data={this.dataset} isChecked={this.isChecked}></TransactionList>
                 
-                <Balance total={this.state.total}></Balance>
-            </div>
+                    <div class = "flex-item">
+                        <Add addTransaction={this.addTransaction}></Add>  <br></br>  
+                        
+                    
+                 
+                        
+                    </div>
+
+                    <div class = "flex-item">
+                        <TransactionList data={this.dataset} toggleChecked={this.toggleChecked} updateTransaction={this.updateTransaction}></TransactionList>
+                        {this.isChecked(this.dataset) ? <Delete deleteTransaction={this.deleteTransaction}></Delete> : null}
+                        <Balance total={this.state.total}></Balance>
+                    </div>
+                </div>
+        </body>
         )
     }
 
