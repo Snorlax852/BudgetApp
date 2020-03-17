@@ -5,8 +5,6 @@ import Add from '../add/add';
 import Delete from '../delete/delete';
 //import Update from '../update/update';
 import './budgetApp.css';
-import {listData} from '../../utilities/firebase';
-import {createData} from '../../utilities/firebase';
 
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
@@ -160,7 +158,7 @@ class BudgetApp extends React.Component {
         
 
         
-        //TODO: fix when update button is clicked, checked is not toggled
+    
         
     }
 

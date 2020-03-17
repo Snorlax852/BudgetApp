@@ -1,15 +1,9 @@
 import React from "react";
 import TransactionListEntry from './transactionListEntry';
-import Update from '../update/update';
 
 
 class TransactionList extends React.Component {
-    
-    constructor (props) {
-        super (props);
-        
-    }
-    
+  
 
    
 
