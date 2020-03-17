@@ -18,9 +18,7 @@ class TransactionListEntry extends React.Component {
     }
 
     handleCheckChange(evt) {
-        this.props.toggleChecked(evt.target.name)
-        console.log(this.props.data);
-        
+        this.props.toggleChecked(evt.target.name)       
 
     }
 
@@ -38,12 +36,12 @@ class TransactionListEntry extends React.Component {
 
     update() {
         // debugger;
-        this.props.updateTransaction(this.props.idx, this.state.description, this.state.cost)
+        this.props.updateTransaction(this.props.id, this.state.description, this.state.cost)
     }
     render() {
         return (
             <div>
-                <input type="checkbox" name={this.props.idx} checked={this.props.checked} onChange={(evt) => this.handleCheckChange(evt)}></input> 
+                <input type="checkbox" name={this.props.id} checked={this.props.checked} onChange={(evt) => this.handleCheckChange(evt)}></input> 
                 {this.props.checked ?
                     <div>
                         <input type="text" name="newCost" placeholder={this.props.cost} onChange={(evt) => this.handleCostChange(evt)}></input>
