@@ -1,5 +1,4 @@
 import React from "react";
-import Update from "../update/update"
 
 class TransactionListEntry extends React.Component {
     constructor (props) {

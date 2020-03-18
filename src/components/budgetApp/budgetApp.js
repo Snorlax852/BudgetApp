@@ -6,6 +6,7 @@ import Delete from '../delete/delete';
 //import Update from '../update/update';
 import './budgetApp.css';
 
+
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 
